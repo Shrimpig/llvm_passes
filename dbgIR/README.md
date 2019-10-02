@@ -4,9 +4,9 @@ This pass encodes IR information into program debug format so that we can map ea
 
 ## How to run this pass
 
-the simplest way is to run clang with the plugin 
+the simplest way is to run clang with the plugin (do not forget the `-g`)
 
-    clang -Xclang -load -Xclang ~/llvm_passes/dbg/dbgIR.so hello.c
+    clang -Xclang -load -Xclang ~/llvm_passes/dbg/dbgIR.so hello.c -g
 
 or if this does not work, you can write a script as a wrapper of clang
 
