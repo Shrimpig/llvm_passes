@@ -35,8 +35,6 @@ bool dbgIR::runOnModule(Module &M) {
     for (auto & BB : F) {
 
       for (auto & I : BB) {
-        MDNode * IDnode = MDNode::get(ctx, MDString::get(ctx, std::to_string(instID)));
-        I.setMetadata("dbgID", IDnode);
 
         DILocation *DIL = NULL;
         DIL = DILocation::get(ctx, instID, 0, (DIScope *) defaultFile, 0);
