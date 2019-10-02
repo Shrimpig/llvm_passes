@@ -15,5 +15,5 @@ or if this does not work, you can write a script as a wrapper of clang
     
 ## Directories
 
-* DIE: this is just a template for LLVM Module passes
-* dbgIR: encoding IR information into binary, so that you can use `addr2line` to find corresponding IR instruction for each binary address
+* **DIE**: this is just a template for LLVM Module passes
+* **dbgIR**: encoding IR information into binary, so that you can use `addr2line` to find corresponding IR instruction for each binary address
