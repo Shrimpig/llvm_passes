@@ -11,7 +11,7 @@ the simplest way is to run clang with the plugin
 or if this does not work, you can write a script as a wrapper of clang
 
     #!/bin/bash
-    clang -Xclang -load -Xclang /home/hong/llvm_passes/dbgIR/dbgIR.so -g "$@"
+    clang -Xclang -load -Xclang ~/llvm_passes/dbgIR/dbgIR.so -g "$@"
     
 ## Directories
 
