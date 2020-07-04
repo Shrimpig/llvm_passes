@@ -4,6 +4,9 @@
 
 using namespace llvm;
 
+static cl::opt<bool> removeDeadFuncKnob("removeDeadFunc", cl::init(false),
+    cl::desc("remove dead functions, use this only you are sure"));
+
 char DIE::ID = 0;
 
 void saveModule(Module &M, Twine filename) {
@@ -14,7 +17,28 @@ void saveModule(Module &M, Twine filename) {
   M.print(ll_file, nullptr);
 }
 
+void DIE::removeDeadFunc(Module &M) {
+
+  std::vector<Function *> AllFuncs;
+  std::vector<Function *>::iterator iter, end;
+
+  for (auto &F : M)
+    AllFuncs.push_back(&F); 
+
+  for (iter = AllFuncs.begin(), end = AllFuncs.end(); iter != end; ) {
+
+    Function * F = *iter++;
+
+    if (F->getName() == "main") continue;
+
+    if (F->hasNUses(0)) 
+      F->removeFromParent();
+  }
+}
+
 bool DIE::runOnModule(Module &M) {
+
+  if (removeDeadFuncKnob == true) removeDeadFunc(M);
 
   saveModule(M, M.getName() + ".ll");
 

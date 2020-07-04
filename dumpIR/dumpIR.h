@@ -18,6 +18,8 @@ namespace {
       static char ID;
       DIE() : ModulePass(ID) { }
 
+      void removeDeadFunc(Module &M);
+
       bool runOnModule(Module &M) override;
   };
 }
