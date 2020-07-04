@@ -11,9 +11,9 @@ the simplest way is to run clang with the plugin
 or if this does not work, you can write a script as a wrapper of clang
 
     #!/bin/bash
-    clang -Xclang -load -Xclang ~/llvm_passes/dbgIR/dbgIR.so -g "$@"
+    clang -Xclang -load -Xclang ~/llvm_passes/DIE/DIE.so -g "$@"
     
 ## Directories
 
-* DIE: this is just a template for LLVM Module passes
-* dbgIR: encoding IR information into binary, so that you can use `addr2line` to find corresponding IR instruction for each binary address
+* **DIE**: this is just a template for LLVM Module passes
+* **dbgIR**: encoding IR information into binary, so that you can use `addr2line` to find corresponding IR instruction for each binary address
