@@ -11,8 +11,7 @@ char DIE::ID = 0;
 
 void saveModule(Module &M, Twine filename) {
   int ll_fd;
-  sys::fs::openFileForWrite(filename, ll_fd,
-      sys::fs::F_RW | sys::fs::F_Text);
+  sys::fs::openFileForWrite(filename, ll_fd);
   raw_fd_ostream ll_file(ll_fd, true, true);
   M.print(ll_file, nullptr);
 }
