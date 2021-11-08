@@ -52,6 +52,8 @@ static void registerDIEPass(const PassManagerBuilder &,
 }
 
 static RegisterStandardPasses RegisterDIEPass(
-    PassManagerBuilder::EP_OptimizerLast, registerDIEPass);
+    //PassManagerBuilder::EP_OptimizerLast, registerDIEPass);
+    //PassManagerBuilder::EP_EarlyAsPossible, registerDIEPass);
+    PassManagerBuilder::EP_ModuleOptimizerEarly, registerDIEPass);
 static RegisterStandardPasses RegisterDIEPass0(
     PassManagerBuilder::EP_EnabledOnOptLevel0, registerDIEPass);
