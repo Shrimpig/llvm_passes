@@ -10,7 +10,10 @@ void DumpICall::dumpInst(Instruction *I) {
 
   const DebugLoc &location = I->getDebugLoc();
 
-  if (location) location.print(errs());
+  if (location) {
+    location.print(errs());
+    errs() << "\n";
+  }
 }
 
 void DumpICall::dumpIt(Module &M) {
